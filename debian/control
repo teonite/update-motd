@@ -1,0 +1,23 @@
+Source: update-motd
+Section: admin
+Priority: extra
+Maintainer: Robert Olejnik <robert@teonite.com>
+Build-Depends: debhelper (>= 6)
+Standards-Version: 3.8.0
+
+Package: update-motd
+Architecture: all
+Depends: ${misc:Depends}, libpam-modules
+Description: Package that generates cool motd sysinfo messages
+ .
+ This package installs a script that dynamically generates
+ a message-of-the-day by running scripts installed in /etc/update-motd.d,
+ in lexical order.
+ .
+ Other packages, or system administrators should symlink scripts into
+ /etc/update-motd.d, pre-pending a 2-digit number to handle ordering.
+ .
+ The functionality formerly provided by this package is now integrated into
+ pam_motd, in libpam-modules.
+ .
+ This package is based on a similar package from Ubuntu.

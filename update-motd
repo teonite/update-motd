@@ -1,0 +1,9 @@
+#!/bin/sh -e
+#
+# Copyright (C) TEONITE - http://teonite.com
+# Copyright (C) Robert Olejnik <robert@teonite.com>
+#
+
+
+# Run the system-defined update-motd dynamic scripts
+(for i in /etc/update-motd.d/*; do ${i}; done) > /etc/motd

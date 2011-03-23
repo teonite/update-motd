@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Copyright (C) TEONITE - http://teonite.com
+# Copyright (C) Robert Olejnik <robert@teonite.com>
+#
+
+
+P=`ps waxu | grep -v ps | wc -l`
+
+printf "%5sProcesses: %5s\n" " " ${P}

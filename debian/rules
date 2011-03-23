@@ -1,0 +1,43 @@
+#!/usr/bin/make -f
+
+PKG=update-motd
+VER=`head -n 1 debian/changelog | sed 's/^.*(//' | sed 's/).*//' | sed 's/-.*//'`
+
+get-orig-source:
+	dh_testdir
+	#bzr export ../${PKG}_${VER}.orig.tar.gz
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean
+
+build:
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+	install update-motd.d/* debian/${PKG}/etc/update-motd.d/
+	install update-motd debian/${PKG}/usr/bin/
+
+binary-indep: install
+	dh_testdir
+	dh_testroot
+	dh_install -i
+	dh_installdocs -i
+	dh_installdebconf -i
+	dh_installchangelogs -i
+	dh_installcron
+	dh_compress -i
+	dh_fixperms -i
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
+
+binary-arch: install
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install get-orig-source

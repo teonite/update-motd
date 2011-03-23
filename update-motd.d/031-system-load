@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# Copyright (C) TEONITE - http://teonite.com
+# Copyright (C) Robert Olejnik <robert@teonite.com>
+#
+
+
+U=`uptime | awk '{print $9}' | sed -e 's/,//g'`
+printf "  System load: %6s" ${U}

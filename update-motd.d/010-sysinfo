@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# Copyright (C) TEONITE - http://teonite.com
+# Copyright (C) Robert Olejnik <robert@teonite.com>
+#
+
+
+H=`hostname`
+N=`ip r s | grep "default" | awk '{print $3,"via", $5}'`
+
+echo
+echo "  Welcome to ${H} (${N})"

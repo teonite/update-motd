@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# Copyright (C) TEONITE - http://teonite.com
+# Copyright (C) Robert Olejnik <robert@teonite.com>
+#
+
+
+U=`w -h -s | wc -l`
+
+printf "%2sUsers: %2s:%3s" " " ${U} " "
+
+IFS=$'\n'
+n=0
+for line in `w -h -s`; do
+	U=`echo ${line} | awk '{print $1}'`
+	F=`echo ${line} | awk '{print $3}'`
+
+	printf "%s@%s " ${U} ${F}
+	n=`expr $n + 1`
+
+	if [ $n -gt 2 ]; then
+		printf ".."
+		continue
+	fi
+done
+
+printf "\n\n"

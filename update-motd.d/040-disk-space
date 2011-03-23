@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# Copyright (C) TEONITE - http://teonite.com
+# Copyright (C) Robert Olejnik <robert@teonite.com>
+#
+
+
+printf "%2sDisk usage: " " "
+
+IFS=$'\n'
+for line in `df -hT -x tmpfs -x udev | grep -v Filesystem | grep %`; do
+	M=`echo ${line} | cut -b 45-55`
+	P=`echo ${line} | cut -b 41-43`
+	F=`echo ${line} | cut -b 35-38`
+
+	printf "%s - %2s of %5s%2s" ${M} ${P} ${F} " "
+done
+
+
+T=`free | grep "Swap:" | awk '{print $2}'`
+U=`free | grep "Swap:" | awk '{print $3}'`
+F=`free -m | grep "Swap:" | awk '{print $4}'`
+P=`echo "${U}*100/${T}" | bc`
+
+printf "Swap: %2s%% (f: %2sM)\n" ${P} ${F}
+

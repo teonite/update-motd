@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# Copyright (C) TEONITE - http://teonite.com
+# Copyright (C) Robert Olejnik <robert@teonite.com>
+#
+
+
+T=`free | grep "Mem:" | awk '{print $2}'`
+U=`free | grep "Mem:" | awk '{print $3}'`
+F=`free -m | grep "Mem:" | awk '{print $4}'`
+P=`echo "${U}*100/${T}" | bc`
+
+printf "%6sMemory usage: %2s%% (f: %2sM)" " " ${P} ${F}

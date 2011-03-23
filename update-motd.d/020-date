@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# Copyright (C) TEONITE - http://teonite.com
+# Copyright (C) Robert Olejnik <robert@teonite.com>
+#
+
+
+DATE=`date`
+MOTD=/etc/motd.tail
+
+echo "  System information as of ${DATE}"
+echo

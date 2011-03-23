@@ -1,0 +1,6 @@
+update-motd (1.0) lenny; urgency=low
+
+  * Initial package creation
+
+ -- Robert Olejnik <robert@teonite.com>  Thu, 20 Jan 2011 16:30:48 +0100
+
