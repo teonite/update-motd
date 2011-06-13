@@ -1,12 +1,11 @@
 #!/bin/bash
-#
-# Copyright (C) TEONITE - http://teonite.com
-# Copyright (C) Robert Olejnik <robert@teonite.com>
-#
-
 
 H=`hostname`
-N=`ip r s | grep "default" | awk '{print $3,"via", $5}'`
+DI=`route -n | grep UG | awk '{print $8}'`
+IP=`ip addr show ${DI} | grep "inet.*${DI}" | awk '{print $2}'`
 
 echo
-echo "  Welcome to ${H} (${N})"
+echo -n "  Welcome to "
+echo -en "\E[47;34m${H}\033[1m\033[0m"
+tput sgr0
+echo " (${IP} via ${DI})"
