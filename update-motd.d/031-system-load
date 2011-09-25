@@ -5,5 +5,5 @@
 #
 
 
-U=`uptime | awk '{print $9}' | sed -e 's/,//g'`
+U=`uptime | awk '{print $10}' | sed -e 's/,//g'`
 printf "  System load: %6s" ${U}

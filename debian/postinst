@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo -n "Running update motd now..."
+/usr/bin/update-motd &> /dev/null
+echo "done."

@@ -7,7 +7,7 @@ Standards-Version: 3.8.0
 
 Package: update-motd
 Architecture: all
-Depends: ${misc:Depends}, libpam-modules
+Depends: ${misc:Depends}, libpam-modules, bc
 Description: Package that generates cool motd sysinfo messages
  .
  This package installs a script that dynamically generates
