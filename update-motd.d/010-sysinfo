@@ -2,7 +2,7 @@
 
 H=`hostname`
 DI=`route -n | grep UG | awk '{print $8}'`
-IP=`ip addr show ${DI} | grep "inet.*${DI}" | awk '{print $2}'`
+IP=`ip addr show ${DI} | grep "inet.*${DI}" | awk '{print $2}' | head -n1`
 
 echo
 echo -n "  Welcome to "
