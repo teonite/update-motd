@@ -23,10 +23,9 @@ F=`free -m | grep "Swap:" | awk '{print $4}'`
 
 if [ $F -gt 0 ]
 then
-   P=`echo "${U}*100/${T}" | bc`
-
-   printf "Swap: %2s%% (f: %2sM)\n" ${P} ${F}
+	P=`echo "${U}*100/${T}" | bc`
+	printf "Swap: %2s%% (f: %2sM)\n" ${P} ${F}
 else
-   printf "Swap: disabled\n"
+	printf "Swap: disabled\n"
 fi
 
